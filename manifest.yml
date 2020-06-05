@@ -1,0 +1,5 @@
+---
+applications:
+ - name: Count-on-us
+   random-route: true
+   memory: 128M

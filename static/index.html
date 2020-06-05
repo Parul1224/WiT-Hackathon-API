@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<title>THE COOL APP</title>
+
+
+<!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.messagestore.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.fallbacks.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.language.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.parser.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.emitter.js"></script>
+<script src="js/lib/jquery.i18n/jquery.i18n.emitter.bidi.js"></script>
+<script src="antixss.js" type="text/javascript"></script>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+    <button class="w3-bar-item w3-button w3-left" onclick="home();">Home</button>
+
+    <button class="w3-bar-item w3-button w3-right" onclick="registration();">Register</button>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:20px;margin-top:43px;" id = "MainPage">
+
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+    </header>
+
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter" onclick="food()">
+            <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left"><i class="fa fa-cutlery w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>52</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Food</h4>
+            </div>
+        </div>
+        <div class="w3-quarter" onclick="medicine()">
+            <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left"><i class="fa fa-medkit w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>99</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Medicine</h4>
+            </div>
+        </div>
+        <div class="w3-quarter" onclick="shelter()">
+            <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left"><i class="fa fa-bed w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>23</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Shelter</h4>
+            </div>
+        </div>
+        <div class="w3-quarter" onclick="clothes()">
+            <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left"><i class="fa fa-snowflake-o w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>23</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Clothes</h4>
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <head>
+        <style>
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+</style>
+        </head>
+        <body>
+        <div id = "gridContainer">
+        <div>
+        </div>
+
+    <!-- End page content -->
+</div>
+</body>
+</html>
+
+<script>
+ var originalDOM=document.body.innerHTML;
+
+<!---------------------------------------REGISTRATION------------------------------>
+function registration() {
+console.log("Register");
+ var div = document.getElementById("MainPage");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+
+ var node = document.createElement("div");
+              var inner = document.createElement("div");
+              node.className = "row";
+              inner.className = "column";
+              inner.style.color = "black";
+              var header = document.createElement("H1");
+              header.innerHTML = "Registration form";
+              var para = document.createElement("SPAN");
+
+              var options = document.createElement("option");
+
+              para.innerHTML = "Please enter your Details which can be used to contact you for related services";
+              document.body.style.background = "#f3f3f3 url('img_tree.png') no-repeat right top";
+              inner.appendChild(header);
+              inner.appendChild(para);
+
+
+              node.appendChild(inner);
+              document.getElementById("MainPage").appendChild(node);
+              textInput(div, "Name");
+              textInput(div, "Contact");
+              textInput(div, "Address");
+              textInput(div, "Email");
+              checkBox(div,"Food");
+              checkBox(div,"Shelter");
+              checkBox(div,"Medicine");
+              checkBox(div,"Clothes");
+
+  var button = document.createElement("BUTTON");
+  var t = document.createTextNode("Submit");
+  button.id = "button";
+  button.appendChild(t);
+
+<!---------------------------------------REGISTRATION On submit------------------------------>
+
+
+    button.addEventListener('click', async function() {
+     console.log("click");
+     console.log(document.getElementById("Contact").value);
+     console.log(document.getElementById("Food").checked);
+     var serv = [];
+     if(document.getElementById("Food").checked) {
+       serv.push("food");
+     }
+
+         if(document.getElementById("Shelter").checked) {
+       serv.push("shelter");
+     }
+
+          if(document.getElementById("Medicine").checked) {
+       serv.push("medicine");
+     }
+
+          if(document.getElementById("Clothes").checked) {
+       serv.push("clothes");
+     }
+
+
+     $.ajax({
+              method: "POST",
+              url: "./signUp",
+              contentType: "application/json",
+              data: JSON.stringify({name: document.getElementById("Name").value ,
+              email:document.getElementById("Email").value,
+               phone: document.getElementById("Contact").value,
+              address: document.getElementById("Address").value,
+               latitude: Math.random(),
+               longitude: Math.random(),
+                services: serv })
+            })
+              .done(function(data) {
+                  console.log(data);
+                   var div = document.getElementById("MainPage");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+                  var header2 = document.createElement("H1");
+              if(data._id) {
+                    header2.innerHTML = "Registration Successful, You registration id is: " + data._id;
+             } else{
+                  header2.innerHTML = "Registration failed please try again";
+               }
+               document.getElementById("MainPage").appendChild(header2);
+    var newElem = document.createElement("BR");
+  div.insertBefore(newElem, header2);
+    div.insertBefore(newElem, header2);
+             });
+});
+  div.appendChild(button);
+    document.getElementById("button").className = "w3-button w3-white w3-border";
+  var newElem = document.createElement("BR");
+  div.insertBefore(newElem, button);
+    var newElem = document.createElement("BR");
+  div.insertBefore(newElem, button);
+    var newElem = document.createElement("BR");
+  div.insertBefore(newElem, button);
+}
+
+<!---------------------------------------REGISTRATION On submit------------------------------>
+
+
+function textInput(myDiv, inputName) {
+            var input = document.createElement('input');
+            input.type = "text";
+            input.name = inputName;
+            input.value = inputName;
+            input.id = inputName;
+            var label = document.createElement('label');
+            label.htmlFor = "id";
+            label.appendChild(document.createTextNode(inputName));
+            myDiv.appendChild(label);
+            myDiv.appendChild(input);
+var newElem = document.createElement("BR");
+ myDiv.insertBefore(newElem, label);
+ var newElem = document.createElement("BR");
+ myDiv.insertBefore(newElem, label);
+}
+
+<!---------------------------------------REGISTRATION------------------------------>
+
+function checkBox(myDiv, checkBoxName) {
+            var checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = checkBoxName;
+            checkbox.value = false;
+            checkbox.id = checkBoxName;
+            var label = document.createElement('label');
+            label.htmlFor = "id";
+            label.appendChild(document.createTextNode(checkBoxName));
+            myDiv.appendChild(checkbox);
+            myDiv.appendChild(label);
+var newElem = document.createElement("BR");
+ myDiv.insertBefore(newElem, checkbox);
+ var newElem = document.createElement("BR");
+ myDiv.insertBefore(newElem, checkbox);
+}
+function home() {
+console.log("home");
+document.body.innerHTML = originalDOM;
+}
+<!---------------------------------------FOOD------------------------------>
+
+        function food() {
+        common();
+            console.log("food");
+
+               $.ajax({
+              method: "POST",
+              url: "./register/food",
+              contentType: "application/json",
+              data: JSON.stringify({latitude: Math.random(),
+                longitude: Math.random()
+                })
+            })
+              .done(function(data) {
+                   var div = document.getElementById("MainPage");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+                  var header2 = document.createElement("H1");
+              if(data.message) {
+                    header2.innerHTML = data.message;
+             } else {
+             header2.innerHTML = "Found few food facilities near you!";
+             }
+               document.getElementById("MainPage").appendChild(header2);
+
+
+              for (i = 0; i < data.length; i++) {
+              var node = document.createElement("div");
+              node.id = "n1"+i;
+                      var inner = document.createElement("div");
+                              inner.id = "n2"+i;
+                              var header = document.createElement("H1");
+                              header.id = "n3"+i;
+                              header.innerHTML = data[i].ServiceProvider;
+                              inner.appendChild(header);
+                              var para2 = document.createElement("P");
+                              para2.innerHTML = "Address: "+ data[i].address;
+                              inner.appendChild(para2);
+                              var para3 = document.createElement("P");
+                              para3.innerHTML = "Phone: "+ data[i].phone;
+                              inner.appendChild(para3);
+                              var para4 = document.createElement("P");
+                              para4.innerHTML = "Distance: "+ data[i].distance;
+                              inner.appendChild(para4);
+                              node.appendChild(inner);
+                              document.getElementById("MainPage").appendChild(node);
+
+
+                            document.getElementById("n1"+i).className = "w3-card-4";
+                            document.getElementById("n1"+i).style.width = "80%";
+                            document.getElementById("n2"+i).className = "w3-container";
+                            document.getElementById("n3"+i).className = "w3-container w3-blue";
+                            document.getElementById("MainPage").appendChild(node);
+
+            }                });
+
+            console.log("medicine");
+
+
+          }
+
+<!---------------------------------------MED------------------------------>
+
+          function medicine() {
+          common();
+            $.ajax({
+              method: "POST",
+              url: "./register/medicine",
+              contentType: "application/json",
+              data: JSON.stringify({latitude: Math.random(),
+                longitude: Math.random()
+                })
+            })
+                .done(function(data) {
+       var div = document.getElementById("MainPage");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+                  var header2 = document.createElement("H1");
+              if(data.message) {
+                    header2.innerHTML = data.message;
+             } else {
+             header2.innerHTML = "Found few medical facilities near you!";
+             }
+               document.getElementById("MainPage").appendChild(header2);
+
+
+              for (i = 0; i < data.length; i++) {
+              var node = document.createElement("div");
+              node.id = "n1"+i;
+                      var inner = document.createElement("div");
+                              inner.id = "n2"+i;
+                              var header = document.createElement("H1");
+                              header.id = "n3"+i;
+                              header.innerHTML = data[i].ServiceProvider;
+                              inner.appendChild(header);
+                              var para2 = document.createElement("P");
+                              para2.innerHTML = "Address: "+ data[i].address;
+                              inner.appendChild(para2);
+                              var para3 = document.createElement("P");
+                              para3.innerHTML = "Phone: "+ data[i].phone;
+                              inner.appendChild(para3);
+                              var para4 = document.createElement("P");
+                              para4.innerHTML = "Distance: "+ data[i].distance;
+                              inner.appendChild(para4);
+                              node.appendChild(inner);
+                              document.getElementById("MainPage").appendChild(node);
+
+
+                            document.getElementById("n1"+i).className = "w3-card-4";
+                            document.getElementById("n1"+i).style.width = "80%";
+                            document.getElementById("n2"+i).className = "w3-container";
+                            document.getElementById("n3"+i).className = "w3-container w3-blue";
+                            document.getElementById("MainPage").appendChild(node);
+
+            }                });
+
+            console.log("medicine");
+          }
+<!---------------------------------------Shelter------------------------------>
+          function shelter()  {
+          common();
+            $.ajax({
+              method: "POST",
+              url: "./register/shelter",
+              contentType: "application/json",
+              data: JSON.stringify({latitude: Math.random(),
+                longitude: Math.random()
+                })
+            })
+                .done(function(data) {
+
+              var div = document.getElementById("MainPage");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+                  var header2 = document.createElement("H1");
+              if(data.message) {
+                    header2.innerHTML = data.message;
+             } else {
+             header2.innerHTML = "Found few shelter homes near you!";
+             }
+               document.getElementById("MainPage").appendChild(header2);
+
+
+              for (i = 0; i < data.length; i++) {
+              var node = document.createElement("div");
+              node.id = "n1"+i;
+                      var inner = document.createElement("div");
+                              inner.id = "n2"+i;
+                              var header = document.createElement("H1");
+                              header.id = "n3"+i;
+                              header.innerHTML = data[i].ServiceProvider;
+                              inner.appendChild(header);
+                              var para2 = document.createElement("P");
+                              para2.innerHTML = "Address: "+ data[i].address;
+                              inner.appendChild(para2);
+                              var para3 = document.createElement("P");
+                              para3.innerHTML = "Phone: "+ data[i].phone;
+                              inner.appendChild(para3);
+                              var para4 = document.createElement("P");
+                              para4.innerHTML = "Distance: "+ data[i].distance;
+                              inner.appendChild(para4);
+                              node.appendChild(inner);
+                              document.getElementById("MainPage").appendChild(node);
+
+
+                            document.getElementById("n1"+i).className = "w3-card-4";
+                            document.getElementById("n1"+i).style.width = "80%";
+                            document.getElementById("n2"+i).className = "w3-container";
+                            document.getElementById("n3"+i).className = "w3-container w3-blue";
+                            document.getElementById("MainPage").appendChild(node);
+
+            }                });
+
+            console.log("shelter");
+          }
+<!---------------------------------------Clothes------------------------------>
+
+          function clothes()  {
+          common();
+            $.ajax({
+              method: "POST",
+              url: "./register/cloth",
+              contentType: "application/json",
+              data: JSON.stringify({latitude: Math.random(),
+                longitude: Math.random()
+                })
+            })
+                .done(function(data) {
+
+              var div = document.getElementById("MainPage");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+                  var header2 = document.createElement("H1");
+              if(data.message) {
+                    header2.innerHTML = data.message;
+             } else {
+             header2.innerHTML = "Found few garment facilities near you!";
+             }
+               document.getElementById("MainPage").appendChild(header2);
+
+
+              for (i = 0; i < data.length; i++) {
+              var node = document.createElement("div");
+              node.id = "n1"+i;
+                      var inner = document.createElement("div");
+                              inner.id = "n2"+i;
+                              var header = document.createElement("H1");
+                              header.id = "n3"+i;
+                              header.innerHTML = data[i].ServiceProvider;
+                              inner.appendChild(header);
+                              var para2 = document.createElement("P");
+                              para2.innerHTML = "Address: "+ data[i].address;
+                              inner.appendChild(para2);
+                              var para3 = document.createElement("P");
+                              para3.innerHTML = "Phone: "+ data[i].phone;
+                              inner.appendChild(para3);
+                              var para4 = document.createElement("P");
+                              para4.innerHTML = "Distance: "+ data[i].distance;
+                              inner.appendChild(para4);
+                              node.appendChild(inner);
+                              document.getElementById("MainPage").appendChild(node);
+
+
+                            document.getElementById("n1"+i).className = "w3-card-4";
+                            document.getElementById("n1"+i).style.width = "80%";
+                            document.getElementById("n2"+i).className = "w3-container";
+                            document.getElementById("n3"+i).className = "w3-container w3-blue";
+                            document.getElementById("MainPage").appendChild(node);
+
+            }                });
+
+            console.log("medicine");
+          }
+<!---------------------------------------Common------------------------------>
+        function common(){
+        var div = document.getElementById("gridContainer");
+                   while(div.firstChild) {
+
+                div.removeChild(div.firstChild);
+            }
+        }
+
+    </script>
