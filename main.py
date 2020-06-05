@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, jsonify
 import atexit
 import os
 import json
+import math 
 
 app = Flask(__name__, static_url_path='')
 client = None
@@ -173,31 +174,45 @@ def populate_services(my_document):
 #---------------------------------------------------------------------------------------------------------------------------------------
 
 
-@app.route('/register/food', methods=['GET'])
+@app.route('/register/food', methods=['POST'])
 def register_for_food():
     data=request.get_json(force=True)
     latitude = data['latitude']
     longitude = data['longitude']
+
+    topFoodProviderMap = calculateGaussianDistance(foodDb,latitude,longitude)
     
-    for document in foodDb:
-        print(document['latitude'])     
-    return jsonify({"message":"You have successfully logged in"})         
+    if not topFoodProviderMap:
+        return jsonify({"message":"Currently You don't have nearby food providers"}) 
+
+    topFoodProviders = {}
+    topFoodProviders = sort_dictionaryWithNearestProviders(topFoodProviderMap) 
+    print(topFoodProviders) 
+
+    payload = jsonifyPayload(foodDb,topFoodProviders)
+    return payload
 
 #-----------------------------------------------*Checking nearby shelter providers*--------------------------------------------------------                 
 #------------------------------------------------------------------------------------------------------------------------------------------
+
 
 @app.route('/register/shelter', methods=['POST'])
 def register_for_shelter():
     data=request.get_json(force=True)
     latitude = data['latitude']
     longitude = data['longitude']
-   
-    # Get all of the documents from food databse
-    
-    for document in foodDb:
-        print(document['latitude'])
 
-    return jsonify({"message":"You have successfully logged in"})   
+    topShelterProviderMap = calculateGaussianDistance(shelterDb,latitude,longitude)
+
+    if not topShelterProviderMap :
+        return jsonify({"message":"Currently You don't have nearby Selter and lodging providers "}) 
+
+    topShelterProviders = {}
+    topShelterProviders = sort_dictionaryWithNearestProviders(topShelterProviderMap) 
+    print(topShelterProviders) 
+
+    payload = jsonifyPayload(shelterDb,topShelterProviders)
+    return payload  
 
 
 
@@ -211,17 +226,24 @@ def register_for_cloth():
     latitude = data['latitude']
     longitude = data['longitude']
 
-    # Get all of the documents from food databse
-    # print(foodDb)
-    for document in foodDb:
-        print(document)
+    topClothProviderMap = calculateGaussianDistance(clothesDb,latitude,longitude)
+    
+    if not topClothProviderMap :
+        return jsonify({"message":"Currently You don't have nearby Cloth providers "}) 
+
+    topClothProviders = {}
+    topClothProviders = sort_dictionaryWithNearestProviders(topClothProviderMap) 
+    print(topClothProviders) 
+
+    payload = jsonifyPayload(clothesDb,topClothProviders)
+    return payload      
+    
 
 
 
 #-----------------------------------------------*Checking nearby medicine providers*--------------------------------------------------------                 
 #---------------------------------------------------------------------------------------------------------------------------------------
 
-        
 
 @app.route('/register/medicine', methods=['POST'])
 def register_for_medicine():
@@ -229,40 +251,71 @@ def register_for_medicine():
     latitude = data['latitude']
     longitude = data['longitude']
 
+    topMedicineProviderMap = calculateGaussianDistance(medicineDb,latitude,longitude)
+    print(topMedicineProviderMap)
+
+    if not topMedicineProviderMap :
+        return jsonify({"message":"Currently You don't have nearby Medicine providers "})
+
+    topMedicineProviders = {}
+    topMedicineProviders = sort_dictionaryWithNearestProviders(topMedicineProviderMap) 
+    print(topMedicineProviders) 
+
+    payload = jsonifyPayload(medicineDb,topMedicineProviders)
+    return payload  
+ 
+    
+#-----------------------------------------------*Checking Gaussian distance*--------------------------------------------------------                 
+#---------------------------------------------------------------------------------------------------------------------------------------
+
+def calculateGaussianDistance(object, latitude,longitude):
+    nearbyServiceProviderMap = {}
     # Get all of the documents from food databse
-    # print(foodDb)
-    for document in foodDb:
-        print(document)
-  
+    for document in object:
+        serviceProviderLatitude = document['latitude']
+        serviceProviderLongitude = document['longitude']
+        latitudeDff = serviceProviderLatitude - latitude
+        longitudeDiff = serviceProviderLongitude - longitude
+        distance = math.sqrt((latitudeDff *latitudeDff) + (longitudeDiff*longitudeDiff))
+        
 
-#-----------------------------------------------*Checking nearby medicine providers*--------------------------------------------------------                 
+        # We have set 5kms as benchmark
+        if(distance <= 5):
+            nearbyServiceProviderMap[document['_id']]=distance
+        
+    return nearbyServiceProviderMap       
+
+
+#-----------------------------------------------*********************************--------------------------------------------------------                 
 #---------------------------------------------------------------------------------------------------------------------------------------
 
 
 
+def sort_dictionaryWithNearestProviders(dictionary):
+    sort_orders = sorted(dictionary.items(), key=lambda x: x[1]) 
+    return sort_orders
+
+def jsonifyPayload(object,dictionary): 
+    content = {}
+    payload = []
+    count = 0
+    for item in dictionary: 
+        if(count==5):
+            break
+        content = {''}     
+        content = {'ServiceProvider': object[item[0]]['name'], 'address': object[item[0]]['address'] , 'phone': object[item[0]]['phone'],  'distance': item[1]}
+        payload.append(content)
+        content = {}
+        count=count+1
+
+    return jsonify(payload)
 
 
 
-
-
-#-----------------------------------------------*Checking nearby shelter providers*--------------------------------------------------------                 
-#---------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-#-----------------------------------------------*Checking nearby clothe providers*--------------------------------------------------------                 
-#---------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-# @atexit.register
-# def shutdown():
-#     if client:
-#         client.disconnect()
+@atexit.register
+def shutdown():
+    if client:
+        client.disconnect()
         
 @app.route('/ping',methods=['GET'])
 def ping():
