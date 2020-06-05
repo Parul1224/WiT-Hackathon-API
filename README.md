@@ -1,2 +1,1 @@
-# WiT-Hackathon-API
-Backend Code
+# WiT-Hackathon

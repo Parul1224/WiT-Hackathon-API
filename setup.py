@@ -17,8 +17,8 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='Count-on-us',
     version='1.0.0',
-    description='Count on us app',
+    description='Help people live healthier lives',
     long_description=long_description,
-    url='https://github.com/IBM-Bluemix/python-hello-world-flask',
+    url='https://github.com/Parul1224/WiT-Hackathon-API',
     license='Apache-2.0'
 )
