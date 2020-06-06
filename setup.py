@@ -1,3 +1,6 @@
+"""
+Hello World app for running Python apps on Bluemix
+"""
 
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
@@ -12,7 +15,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='Count-on-us',
+    name='WiTHackathon2020-CountOnUsApp',
     version='1.0.0',
     description='Help people live healthier lives',
     long_description=long_description,

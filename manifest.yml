@@ -1,5 +1,5 @@
 ---
 applications:
- - name: Count-on-us
+ - name: WiTHackathon2020-CountOnUsApp
    random-route: true
    memory: 128M

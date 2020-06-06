@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: get-started-python
+  name: WiTHackathon2020-CountOnUsApp
   labels:
-    app: get-started-python
+    app: WiTHackathon2020-CountOnUsApp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: get-started-python
+      app: WiTHackathon2020-CountOnUsApp
   template:
     metadata:
       labels:
-        app: get-started-python
+        app: WiTHackathon2020-CountOnUsApp
     spec:
       containers:
-      - name: get-started-python
+      - name: WiTHackathon2020-CountOnUsApp
         image: <REGISTRY>/<NAMESPACE>/myapp:v1.0.0
         ports:
         - containerPort: 8000
