@@ -4,7 +4,7 @@ An application designed to cater the basic necessities of the victims of COVID-1
 
 
 ## Architecture
-![alt text](https://github.com/Parul1224/WiTHackathon2020-CountOnUs_Application/blob/master/Architecture.png?raw=true)
+![alt text](https://github.com/Parul1224/WiTHackathon2020-CountOnUsApp/blob/master/Architecture.png?raw=true)
 
 ## Instructions
 
