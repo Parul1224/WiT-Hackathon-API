@@ -7,9 +7,11 @@ An application designed to cater the basic necessities of the victims of COVID-1
 ![alt text](https://github.com/Parul1224/WiTHackathon2020-CountOnUsApp/blob/master/Architecture.png?raw=true)
 
 ## Roadmap
-You can see the roadmap of the application at [Here]()
+You can see the roadmap of the application at [Here](https://drive.google.com/file/d/1vnQcntta6ATZwshtdCS8XIRsAbu3kbQM/view?usp=drivesdk)
 
 The application is hosted on IBM CLOUD. A single click and you'll navigate to the application [Count On Us](https://withackathon2020-countonusapp.eu-gb.cf.appdomain.cloud/)
+
+For better convenience open https://drive.google.com/file/d/1vnQcntta6ATZwshtdCS8XIRsAbu3kbQM/view?usp=drivesdk in Chrome(incognito mode)
 
 ## Instructions
 
