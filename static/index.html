@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Count On us</title>
+<title>Count On Us</title>
 
 
 <!-- Bootstrap -->
@@ -88,7 +88,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <head>
-        <style>
+            <style>
 
 * {
   box-sizing: border-box;
@@ -139,17 +139,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </head>
         <body>
         <div id = "gridContainer">
-        <div>
-        </div>
+            <div>
+            </div>
 
-    <!-- End page content -->
-</div>
-</body>
+            <!-- End page content -->
+        </div>
+        </body>
 </html>
 
 <script>
  var originalDOM=document.body.innerHTML;
-
+ var lati;
+ var longi;
 <!---------------------------------------REGISTRATION------------------------------>
 function registration() {
 console.log("Register");
@@ -217,6 +218,10 @@ console.log("Register");
      }
 
 
+     if(!lati) {
+          getLocation();
+        }
+
      $.ajax({
               method: "POST",
               url: "./signUp",
@@ -225,8 +230,8 @@ console.log("Register");
               email:document.getElementById("Email").value,
                phone: document.getElementById("Contact").value,
               address: document.getElementById("Address").value,
-               latitude: Math.random(),
-               longitude: Math.random(),
+               latitude: lati,
+               longitude: longi,
                 services: serv })
             })
               .done(function(data) {
@@ -310,8 +315,8 @@ document.body.innerHTML = originalDOM;
               method: "POST",
               url: "./register/food",
               contentType: "application/json",
-              data: JSON.stringify({latitude: Math.random(),
-                longitude: Math.random()
+              data: JSON.stringify({               latitude: lati,
+                             longitude: longi
                 })
             })
               .done(function(data) {
@@ -372,8 +377,8 @@ document.body.innerHTML = originalDOM;
               method: "POST",
               url: "./register/medicine",
               contentType: "application/json",
-              data: JSON.stringify({latitude: Math.random(),
-                longitude: Math.random()
+              data: JSON.stringify({       latitude: lati,
+                             longitude: longi
                 })
             })
                 .done(function(data) {
@@ -430,8 +435,8 @@ document.body.innerHTML = originalDOM;
               method: "POST",
               url: "./register/shelter",
               contentType: "application/json",
-              data: JSON.stringify({latitude: Math.random(),
-                longitude: Math.random()
+              data: JSON.stringify({       latitude: lati,
+                             longitude: longi
                 })
             })
                 .done(function(data) {
@@ -490,8 +495,8 @@ document.body.innerHTML = originalDOM;
               method: "POST",
               url: "./register/cloth",
               contentType: "application/json",
-              data: JSON.stringify({latitude: Math.random(),
-                longitude: Math.random()
+              data: JSON.stringify({       latitude: lati,
+                             longitude: longi
                 })
             })
                 .done(function(data) {
@@ -544,11 +549,27 @@ document.body.innerHTML = originalDOM;
           }
 <!---------------------------------------Common------------------------------>
         function common(){
+          if(!lati) {
+          getLocation();
+        }
+
         var div = document.getElementById("gridContainer");
                    while(div.firstChild) {
 
                 div.removeChild(div.firstChild);
             }
+        }
+
+        function getLocation() {
+            console.log(" LOC1:");
+            var loc =  navigator.geolocation.getCurrentPosition(showPosition);
+            console.log(" LOC:", loc);
+        }
+        function showPosition(position) {
+          console.log("Positions: ", position.coords.latitude );
+            console.log("Positions: ", position.coords.longitude);
+          lati = position.coords.latitude;
+          longi = position.coords.longitude;
         }
 
     </script>
