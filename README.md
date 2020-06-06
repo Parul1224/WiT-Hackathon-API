@@ -1,6 +1,10 @@
-## WiTHackathon2020-CountOnUs_Application
+## Count On Us(CovAid)
 
 An application designed to cater the basic necessities of the victims of COVID-19 . Kindness doesn't need proximity, a simple click will do it. Let's click !
+
+
+## Architecture
+![alt text](https://github.com/Parul1224/WiTHackathon2020-CountOnUs_Application/blob/master/Architecture.png?raw=true)
 
 ## Instructions
 
